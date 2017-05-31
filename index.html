@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+ <title>Practical Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <style type="text/css">
+ 	*{
+ 		padding: 0;
+ 		margin: 0; 
+ 	}
+ 	body{
+ 		background: #ececec;
+ 	} 	
+ 	.modal {
+	    display: none; /* Hidden by default */
+	    position: absolute; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    padding-top: 100px; /* Location of the box */
+	    left: 0;
+	    top: 0;
+	    width: 100%; /* Full width */
+	    height: 100%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	     /* Fallback color */
+	    background-color: rgba(127, 127, 127, 0.4); /* Black w/ opacity */
+	}
+	.modal2 {
+	    display: none; /* Hidden by default */
+	    position: absolute; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    padding-top: 100px; /* Location of the box */
+	    left: 0;
+	    top: 0;
+	    width: 100%; /* Full width */
+	    height: 100%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	     /* Fallback color */
+	    background-color: rgba(127, 127, 127, 0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content */
+	.modal-content {
+	    background-color: #fefefe;
+	    margin: auto;
+	    padding: 20px;
+	    border: 1px solid #ececec;
+	    width: 80%;
+	    height: 100%;
+	    border-radius: 5px;
+	    -webkit-animation-name: animatetop;
+	    -webkit-animation-duration: 0.4s;
+	    animation-name: animatetop;
+	    animation-duration: 0.4s;
+	}
+
+	/* The Close Button */
+	.close {
+	    color: #aaaaaa;
+	    float: right;
+	    font-size: 28px;
+	    font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+	    color: #000;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+ 	.sidemenu{
+ 		background: #fff;
+ 		border:1px solid #c7c7c7;
+ 		width: 28%;
+ 		display: inline-block;
+ 		padding: 6px;
+ 		position: relative;
+ 		border-radius: 4px;
+ 	}
+ 	.body_content{
+ 		width: 68%;
+ 		display: inline-block;
+ 		background: #fff;
+ 	}
+ 	.tasks{
+ 		background: #ececec;
+ 		border-radius: 6px;
+ 	}
+
+ 	.tasks li{
+ 		display: block;
+ 		border: 1px solid #e0dede;
+ 		padding: 5%;
+ 	}
+ 	.tasks .user > div{
+ 		display: inline-block;
+ 	}
+ 	.tasks .user .user_img {
+ 		width: 25%;
+ 		text-align: center;
+
+ 	}
+ 	.tasks .user .user_img img{
+ 		width:90%;
+ 		border-radius: 50%;
+ 		margin: 0 auto;
+ 	}
+ 	.tasks .user .user_info , .tasks .center{
+ 		width: 40%;
+ 		vertical-align: top;
+ 		padding-top: 1%;
+ 		margin-left: 3%;
+ 	}
+ 	.tasks .user .user_info h4 , .tasks .center h4{
+ 		color: #1976D2;
+ 	}
+ 	.tasks .user .user_info span ,.tasks .center span{
+ 		font-size: 12px;
+ 	}
+ 	.tasks .user .select_user , .tasks .right{
+ 		width: 25%;
+ 		height: 100%;
+ 		vertical-align: top;
+ 		padding-top: 1%;
+ 	}
+ 	.tasks .user .select_user button{
+	background: #1976D2;
+    padding: 14%;
+    border-radius: 4px;
+    box-shadow: 6px 2px 15px #b1afaf;
+    color: #fff;
+    border: 1px solid #1976D2;
+ 	}
+ 	.tasks .center ,.tasks .left , .tasks .right{
+ 		display: inline-block; 
+ 	}
+
+.tasks .left {
+    width: 20%;
+    text-align: center;
+    display: inline-block;
+}
+.tasks .left button{
+	width: 41px;
+    height: 40px;
+	border-radius: 50%;
+	border:none;
+	box-shadow: 6px 2px 15px #b1afaf;
+}
+
+.tasks .right button{
+    width: 41px;
+    height: 40px;
+	border-radius: 50%;
+	border:none;
+	box-shadow: 6px 2px 15px #b1afaf;
+	background: #81C784
+;
+	color: #fff;
+}
+
+.tasks .left button.yellow{
+	background: #C6FF00;
+}
+
+.tasks .left button.blue{
+	background: #00E5FF;
+}
+
+	
+
+
+
+	.modal-content ul{
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+
+	.modal-content ul li{
+		display: inline-block;
+		width: 23%;
+		padding: 3%;
+		/* border-bottom: 1px solid #ececec; */
+		padding-bottom: 5%;
+	}
+
+	.modal-content ul li *{
+		display: block;
+		text-align: center;
+	}
+
+	.modal-content ul li img{
+		width: 90%;
+		border-radius: 50%;
+
+	}
+
+	.modal-content ul li h5{
+		color: #555;
+	}
+
+	.modal-content ul li span{
+		font-size: 12px;
+	}
+
+	 #myModal2 .modal-content ul li{
+	 	display: block;
+	 	padding: 6%;
+	 	border-bottom: 2px solid #ececec;
+	 	width: 80%
+	 }
+	 #myModal2 .modal-content ul li .left{
+		width: 20%;
+		text-align: center;
+		display: inline-block;
+		vertical-align: bottom;
+		height: 100%;
+	}
+	 #myModal2 .modal-content ul li .left button{
+		width: 41px;
+	    height: 40px;
+		border-radius: 50%;
+		border:none;
+		box-shadow: 6px 2px 15px #b1afaf;
+	}
+
+	#myModal2 .modal-content ul li .center{
+		display: inline-block;
+		width: 60%;
+		height: 100%;
+		vertical-align: text-top;
+		text-align: left;
+		font-size: 25px;
+		color: #555;
+	}
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+
+
+
+
+
+button.yellow{
+	background: #C6FF00;
+}
+
+button.blue{
+	background: #00E5FF;
+}
+button.red{
+	background: red;
+}
+
+
+
+
+@media (max-width: 860px) {
+		.sidemenu{
+			width: 100%;
+		}
+	}
+ </style>
+
+</head>
+
+<body>
+<div class="body_content col-md-7">
+<div></div>
+</div>
+<div class="sidemenu">
+	<ul class="tasks">
+		<li class="user">
+			<div class="user_img ">
+				<img src="user.jpg">	
+			</div>
+			<div class="user_info ">
+				<h4>Deniel Hindi</h4>
+				<span>555-555-5555</span>
+				<span>daniel@build.com</span>
+			</div>
+			<div class="select_user ">
+				<button id="myBtn">team</button>
+			</div>
+			
+		</li>
+
+		<li class="item">
+			<div class="left ">
+					<button class="yellow" id="myBtn2"></button>
+			</div>
+			<div class="center ">
+				<h4>Task number</h4>
+				<span>This is along text</span>
+			</div>
+			<div class="right ">
+				<button>S</button>
+			</div>
+			
+		</li>
+
+		<li class="item">
+			<div class="left ">
+					<button class="blue" id="myBtn2"></button>
+			</div>
+			<div class="center ">
+				<h4>Task number</h4>
+				<span>This is along text</span>
+			</div>
+			<div class="right ">
+				<button>S</button>
+			</div>
+			
+		</li>
+		<li class="item">
+			<div class="left ">
+					<button class="yellow" id="myBtn2"></button>
+			</div>
+			<div class="center ">
+				<h4>Task number</h4>
+				<span>This is along text</span>
+			</div>
+			<div class="right ">
+				<button>S</button>
+			</div>
+			
+		</li>
+		<li class="item">
+			<div class="left ">
+					<button class="blue" id="myBtn2"></button>
+			</div>
+			<div class="center ">
+				<h4>Task number</h4>
+				<span>This is along text</span>
+			</div>
+			<div class="right ">
+				<button id="myBtnTwo">S</button>
+			</div>
+			
+		</li>
+
+		
+	</ul>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <ul>
+	    	<li>
+	    		<img src="user.jpg">
+	    		<h5>user name</h5>
+	    		<span>555-555-5555</span>
+	    		<span>user@email.com</span>
+	    	</li>
+	    	<li>
+	    		<img src="user.jpg">
+	    		<h5>user name</h5>
+	    		<span>555-555-5555</span>
+	    		<span>user@email.com</span>
+	    	</li>
+	    	<li>
+	    		<img src="user.jpg">
+	    		<h5>user name</h5>
+	    		<span>555-555-5555</span>
+	    		<span>user@email.com</span>
+	    	</li>
+	    	<li>
+	    		<img src="user.jpg">
+	    		<h5>user name</h5>
+	    		<span>555-555-5555</span>
+	    		<span>user@email.com</span>
+	    	</li>
+	    	<li>
+	    		<img src="user.jpg">
+	    		<h5>user name</h5>
+	    		<span>555-555-5555</span>
+	    		<span>user@email.com</span>
+	    	</li>
+	    	<li>
+	    		<img src="user.jpg">
+	    		<h5>user name</h5>
+	    		<span>555-555-5555</span>
+	    		<span>user@email.com</span>
+	    	</li>
+	    	<li>
+	    		<img src="user.jpg">
+	    		<h5>user name</h5>
+	    		<span>555-555-5555</span>
+	    		<span>user@email.com</span>
+	    	</li>
+	    	<li>
+	    		<img src="user.jpg">
+	    		<h5>user name</h5>
+	    		<span>555-555-5555</span>
+	    		<span>user@email.com</span>
+	    	</li>
+	    	<li>
+	    		<img src="user.jpg">
+	    		<h5>user name</h5>
+	    		<span>555-555-5555</span>
+	    		<span>user@email.com</span>
+	    	</li>
+	    </ul>
+	  </div>
+
+
+	 
+
+	</div>
+	<div id="myModal2" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content ">
+		    <span class="close close2">&times;</span>
+		     <ul>
+		     	<li>
+		     	<div class="left"><button class="yellow"></button></div>
+		     		<div class="center">
+		     			<p> pending</p>
+		     		</div>
+		     	</li>
+		     	<li>
+		     	<div class="left"><button class="blue"></button></div>
+		     		<div class="center">
+		     			<p> pending</p>
+		     		</div>
+		     	</li>
+		     	<li>
+		     	<div class="left"><button class="red"></button></div>
+		     		<div class="center">
+		     			<p> pending</p>
+		     		</div>
+		     	</li>
+		     </ul>
+		  </div>
+
+		</div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+var modal2 = document.getElementById('myModal2');
+
+var btn2 = document.getElementById("myBtn2");
+
+var span2 = document.getElementsByClassName("close2")[0];
+
+btn2.onclick = function() {
+    modal2.style.display = "block";
+}
+
+span2.onclick = function() {
+    modal2.style.display = "none";
+}
+</script>
+
+
+<script>
+
+
+</script>
+
+
+
+</body>
+
+
+
+</html>
